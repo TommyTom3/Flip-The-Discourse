@@ -7,7 +7,12 @@
   <link rel="stylesheet" href="../assets/lab.css">
 </head>
 <body>
-
+  <div class="app">
+    <header class="site-header">
+      <div class="logo-wrap">
+        <img src="/assets/images/ftd-banner.png" alt="Flip The Discourse Logo">
+      </div>
+    </header>
     <div class="nav">
         <a href="../index.html">Home</a>
         <a href="../lab/index.html">Reflection Lab</a>
@@ -16,31 +21,33 @@
         <a href="../interact/submit-source.html">Submit a Source</a>
         <a href="../interact/ask-question.html">Ask a Question</a>
       </div>
+    <main class="page">
+       <div class="container">
+            <h1 class="h1">Lab Topic</h1>
 
-<div class="container">
-  <h1 class="h1">Lab Topic</h1>
+                 <div class="split">
 
-  <div class="split">
+                     <div class="panel">
+                             <h2>Source A</h2>
+                             <textarea placeholder="Your reflection..."></textarea>
+                      </div>
 
-    <div class="panel">
-      <h2>Source A</h2>
-      <textarea placeholder="Your reflection..."></textarea>
-    </div>
+                       <div class="panel">
+                           <div class="cover" id="cover">
+                              <div>
+                                   <p>Reflect on Source A first.</p>
+                                   <button class="btn primary" id="reveal">Reveal Source B</button>
+                              </div>
+                           </div>
 
-    <div class="panel">
-      <div class="cover" id="cover">
-        <div>
-          <p>Reflect on Source A first.</p>
-          <button class="btn primary" id="reveal">Reveal Source B</button>
-        </div>
-      </div>
+                               <h2>Source B</h2>
+                                <textarea placeholder="Your reflection..."></textarea>
+                        </div>
 
-      <h2>Source B</h2>
-      <textarea placeholder="Your reflection..."></textarea>
-    </div>
-
+                  </div>
+         </div>
+      </main>
   </div>
-</div>
 
 <script src="../assets/lab.js"></script>
 <script src="../assets/main.js"></script>

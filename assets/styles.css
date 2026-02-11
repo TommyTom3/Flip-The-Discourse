@@ -1,81 +1,229 @@
 :root{
-    --bg:#0b0c0f;
-    --panel:#14161d;
-    --text:#eaeaf0;
-    --muted:#a9acb8;
-    --line:#262a36;
-    --accent:#f1c17a;
+  --bg:#0b0c0f;
+  --panel:#14161d;
+  --text:#eaeaf0;
+  --muted:#a9acb8;
+  --line:#262a36;
+  --accent:#f1c17a;
+
+  /* fighter jet grey */
+  --jet:#b7bbc4;
+}
+
+*{ box-sizing:border-box; }
+
+html, body{
+  margin:0;
+  padding:0;
+  min-height:100%;
+  background-color: var(--bg); /* never show white */
+  color: var(--text);
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height: 1.6;
+}
+
+/* Cave background: fills viewport + repeats vertically */
+body{
+  background-image:
+    radial-gradient(circle at 70% 55%, rgba(241,193,122,0.10), rgba(0,0,0,0) 55%),
+    linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
+    url("/assets/images/cave-bg.png");
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+}
+
+/* iOS / mobile: fixed backgrounds can jitter */
+@media (max-width: 900px) {
+  body { background-attachment: scroll; }
+}
+
+a{ color: var(--accent); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+/* =========================
+   APP LAYOUT
+   ========================= */
+
+.app{
+  min-height: 100vh;
+  display:flex;
+  flex-direction: column;
+}
+
+/* =========================
+   HEADER (sticky, centered logo)
+   ========================= */
+
+  
+   .site-header{
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    background: rgba(20,22,29,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(6px);
+  
+    position: relative;
+  
+    overflow: hidden;
   }
   
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
+  .site-header img{
+    display: block;
+    width: auto;
+    height: auto;           /* key: stop "fill header" behavior */
+    max-height: 170px;      /* set the actual banner size */
+    max-width: 96%;
+    object-fit: contain;
   }
   
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
+  @media (max-width: 600px){
+    .site-header{
+      height: 130px;        /* shrink header on phone */
+    }
   
-  .nav{
-    padding:14px 20px;
-    border-bottom:1px solid var(--line);
-    display:flex;
-    gap:20px;
-    align-items:center;
-    flex-wrap:wrap;
-    min-height:50px;
+    .site-header img{
+      max-height: 110px;    /* shrink banner on phone */
+    }
+  }
+ 
+
+/* =========================
+   NAV (NOT sticky; scrolls away)
+   ========================= */
+
+.nav{
+  position: static;              /* NOT fixed; disappears when scrolling */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap: 22px;
+  flex-wrap: wrap;
+
+  padding: 12px 16px;
+  min-height: 48px;
+
+  background: rgba(0,0,0,0.10);  /* more transparent to show cave */
+  backdrop-filter: blur(3px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav a{
+  color: var(--jet);
+  padding: 8px 12px;
+  border-radius: 999px;          /* pill */
+  text-decoration:none;
+
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 16px;
+
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.nav a:hover,
+.nav a.active{
+  background: var(--jet);        /* fighter jet grey bubble */
+  color: #0b0c0f;                /* black text in bubble */
+  text-decoration:none;
+}
+
+@media (max-width: 600px){
+  .nav a{ font-size: 14px; }
+}
+
+/* =========================
+   PAGE PANEL (scrolls inside)
+   ========================= */
+
+   .page{
+    width: min(1000px, calc(100% - 40px));
+    margin: 16px auto 22px;
+  
+    background: rgba(20,22,29,0.72);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+  
+    padding: 22px;
+  
+    flex: 1;
+    max-height: calc(100vh - 170px);  /* header ~110 + nav ~48 + margins */
+    overflow: auto;
+  }
+  
+  @media (max-width: 600px){
+    .page{
+      width: calc(100% - 24px);
+      margin: 12px auto 16px;
+      border-radius: 14px;
+      padding: 14px;
+      max-height: calc(100vh - 140px); /* header ~80 + nav ~48 + margins */
+    }
   }
 
-  .nav a{
-    padding: 6px 0;
-  }
-  
-  .container{
-    max-width:1000px;
-    margin:0 auto;
-    padding:32px 20px;
-  }
-  
-  .h1{
-    font-size:36px;
-    margin-bottom:16px;
-  }
-  
-  .sub{
-    color:var(--muted);
-    margin-bottom:20px;
-  }
-  
-  .card{
-    background:var(--panel);
-    padding:20px;
-    border-radius:12px;
-    border:1px solid var(--line);
-    margin-top:20px;
-  }
-  
-  .btn{
-    display:inline-block;
-    padding:8px 14px;
-    border-radius:8px;
-    border:1px solid var(--line);
-    margin-top:10px;
-  }
-  .btn.primary{
-    background:rgba(241,193,122,.12);
-    border-color:var(--accent);
-  }
-  
-  .hr{
-    height:1px;
-    background:var(--line);
-    margin:30px 0;
-  }
-  
-  .small{
-    font-size:14px;
-    color:var(--muted);
-  }
+/* =========================
+   CONTENT STYLES
+   ========================= */
+
+.container{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;                    /* page already pads */
+}
+
+.h1{
+  font-size: 36px;
+  margin: 0 0 16px;
+}
+
+.sub{
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.card{
+  background: var(--panel);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  margin-top: 20px;
+}
+
+.btn{
+  display:inline-block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  margin-top: 10px;
+  color: var(--text);
+  background: rgba(255,255,255,0.03);
+  text-decoration:none;
+}
+
+.btn:hover{ text-decoration:none; }
+
+.btn.primary{
+  background: rgba(241,193,122,0.12);
+  border-color: #b7bbc4;
+}
+
+.hr{
+  height:1px;
+  background: var(--line);
+  margin: 30px 0;
+}
+
+.small{
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.site-header { outline: 3px solid #b7bbc4; }
+.site-header img { outline: 3px solid #0b0c0f; }
