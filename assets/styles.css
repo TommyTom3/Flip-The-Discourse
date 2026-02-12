@@ -258,9 +258,6 @@ a:hover{ text-decoration:underline; }
   color: var(--muted);
 }
 
-.site-header { outline: 3px solid #b7bbc4; }
-.site-header img { outline: 3px solid #0b0c0f; }
-
 .site-footer {
   margin-top: 4rem;
   padding: 1.5rem 1rem;
