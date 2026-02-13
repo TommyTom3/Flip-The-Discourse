@@ -310,3 +310,31 @@ a:hover{ text-decoration:underline; }
   color: #888;
   letter-spacing: 0.02em;
 }
+
+/* ===== Mobile Header Center Fix ===== */
+@media (max-width: 900px){
+  .header-inner{
+    justify-content: center;
+  }
+}
+
+/* ===== Mobile Nav Improvements ===== */
+@media (max-width: 600px){
+  .nav{
+    padding: 14px 12px;
+    gap: 10px;
+  }
+
+  .nav a{
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .site-header{
+    height: 150px;
+  }
+
+  .site-header img{
+    max-height: 130px;
+  }
+}
