@@ -531,3 +531,30 @@ a:hover{ text-decoration:underline; }
 
 /* prevent long words/links from breaking the grid */
 .hero-split p{ overflow-wrap: anywhere; }
+
+/* iPhone-specific tightening */
+@media (max-width: 600px){
+
+  .about-split{
+    grid-template-columns: 90px 1fr;
+    gap: 12px;
+  }
+
+  .about-split img{
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 10px;
+  }
+
+  .hero-split{
+    grid-template-columns: 90px 1fr;
+    gap: 12px;
+  }
+
+  .hero-left img{
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 10px;
+  }
+
+}
