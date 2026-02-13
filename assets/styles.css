@@ -393,17 +393,6 @@ a:hover{ text-decoration:underline; }
   text-align: left;
 }
 
-/* Mobile */
-
-
-  .hero-right {
-    text-align: left;
-  }
-
-  .hero-left img {
-    width: 140px;
-    height: 140px;
-  }
 
 
 /* ABOUT: always side-by-side (even on mobile) */
@@ -503,6 +492,14 @@ a:hover{ text-decoration:underline; }
   align-items: flex-start;
   gap: 16px;
   min-width: 0;
+}
+
+.hero-left img{
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
 }
 
 .hero-left .btn{
