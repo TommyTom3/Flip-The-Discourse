@@ -235,17 +235,18 @@ a:hover{ text-decoration:underline; }
     max-height: none;  /* header ~110 + nav ~48 + margins */
     overflow: visible;
   }
-  
   @media (max-width: 600px){
     .page{
       width: calc(100% - 24px);
       margin: 12px auto 16px;
       border-radius: 14px;
       padding: 14px;
-      max-height: calc(100vh - 140px); /* header ~80 + nav ~48 + margins */
+  
+      max-height: none;
+      overflow: visible;
     }
   }
-
+  
 /* =========================
    CONTENT STYLES
    ========================= */
@@ -416,7 +417,7 @@ a:hover{ text-decoration:underline; }
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 36px;
-  align-items: start; /* important */
+  align-items: center; 
 }
 
 .hero-left {
@@ -644,4 +645,21 @@ a:hover{ text-decoration:underline; }
     width: 100%;
   }
 
+}
+
+/* MOBILE: Meet Tom stacks (photo on top, text below) */
+@media (max-width: 600px){
+  .about-split{
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .about-left{
+    align-items: center;   /* centers image + button */
+  }
+
+  .about-split img{
+    width: 110px !important;
+    height: 110px !important;
+  }
 }
