@@ -601,3 +601,47 @@ a:hover{ text-decoration:underline; }
 
 }
 
+/* MOBILE HERO LAYOUT RESTRUCTURE */
+@media (max-width: 600px){
+
+  /* Stack hero */
+  .hero-split{
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  /* Top row: image + Meet Tom */
+  .hero-left{
+    display: grid !important;
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+
+  /* Image sizing */
+  .hero-left img{
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 12px;
+  }
+
+  /* First button (Meet Tom) sits beside image */
+  .hero-left .btn:first-of-type{
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Second button (Read First Essay) forced below full width */
+  .hero-left .btn:last-of-type{
+    grid-column: 1 / -1; /* spans full width */
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Text full width below */
+  .hero-right{
+    width: 100%;
+  }
+
+}
