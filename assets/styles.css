@@ -59,7 +59,7 @@ a:hover{ text-decoration:underline; }
 
   
    .site-header{
-    height: 190px;
+    padding: 24px 0 18px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,10 +67,6 @@ a:hover{ text-decoration:underline; }
     background: rgba(20,22,29,0.05);
     border-bottom: 1px solid rgba(255,255,255,0.06);
     backdrop-filter: blur(6px);
-  
-    position: relative;
-  
-    overflow: hidden;
   }
   
   .site-header img{
@@ -81,6 +77,39 @@ a:hover{ text-decoration:underline; }
     max-width: 96%;
     object-fit: contain;
   }
+
+  /* Title header text (replaces old logo image) */
+.site-title{
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 0.02em;
+}
+
+.site-tagline{
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* Banner between header and nav */
+/* Banner between header and nav (NO CROP) */
+.mid-banner{
+  width: 100%;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.10);
+}
+
+.mid-banner img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* mobile sizing */
+@media (max-width: 600px){
+  .site-title{ font-size: 26px; }
+  .mid-banner{ height: 200px; }
+}
   
   @media (max-width: 600px){
     .site-header{
@@ -187,8 +216,8 @@ a:hover{ text-decoration:underline; }
     padding: 22px;
   
     flex: 1;
-    max-height: calc(100vh - 170px);  /* header ~110 + nav ~48 + margins */
-    overflow: auto;
+    max-height: none;  /* header ~110 + nav ~48 + margins */
+    overflow: visible;
   }
   
   @media (max-width: 600px){
@@ -555,3 +584,4 @@ a:hover{ text-decoration:underline; }
   }
 
 }
+
