@@ -420,6 +420,8 @@ a:hover{ text-decoration:underline; }
   align-items: center; 
 }
 
+
+
 .hero-left {
   display: flex;
   flex-direction: column;
@@ -662,4 +664,49 @@ a:hover{ text-decoration:underline; }
     width: 110px !important;
     height: 110px !important;
   }
+}
+
+/* HERO: audio strip spans full width above both columns */
+.hero-audio{
+  grid-column: 1 / -1;     /* span all columns */
+  width: 100%;
+  max-width: 640px;        /* optional: keeps it from being huge */
+  margin: 0 auto 18px auto;
+}
+
+.hero-audio audio{
+  width: 100%;
+  display: block;
+}
+
+.hero-audio img{
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px auto;
+
+  border-radius: 14px; /* same feel as hero image */
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* ABOUT PAGE AUDIO BLOCK */
+.about-audio{
+  max-width: 520px;
+  margin: 0 0 20px 0;
+}
+
+.about-audio img{
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px auto;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.about-audio audio{
+  width: 100%;
+  display: block;
 }
