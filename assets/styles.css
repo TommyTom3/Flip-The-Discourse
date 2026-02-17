@@ -585,7 +585,8 @@ a:hover{ text-decoration:underline; }
     gap: 12px;
   }
 
-  .about-split img{
+  /* ONLY the portrait in the left column */
+  .about-left > img{
     width: 80px !important;
     height: 80px !important;
     border-radius: 10px;
@@ -709,4 +710,14 @@ a:hover{ text-decoration:underline; }
 .about-audio audio{
   width: 100%;
   display: block;
+}
+
+/* ===== FIX: About page "listen.png" never becomes a square ===== */
+@media (max-width: 600px){
+  .about-split .about-audio img{
+    width: 100% !important;
+    height: auto !important;
+    max-width: 520px;
+    object-fit: contain !important;
+  }
 }
