@@ -275,6 +275,39 @@ a:hover{ text-decoration:underline; }
   margin-top: 20px;
 }
 
+/* Home-page update card */
+.ftd-update{
+  background: #E9E1D2;      /* beige */
+  border-color: rgba(0,0,0,0.18);
+  padding: 28px 40px;      /* extra left/right space */
+  margin: 30px 60px;       /* space from edges of page */
+}
+
+.ftd-update__title{
+  margin: 0 0 18px;
+  color: #0B3D2E;           /* evergreen */
+  text-align: center;      /* center "Update" */
+  letter-spacing: 0.05em;
+}
+
+.ftd-update__text{
+  margin: 0 0 14px;
+  color: #0B3D2E;           /* evergreen */
+  line-height: 1.6;
+}
+
+.ftd-update__text:last-child{
+  margin-bottom: 0;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px){
+  .ftd-update{
+    margin: 20px 16px;     /* safe mobile spacing */
+    padding: 22px 20px;    /* tighter side padding */
+  }
+}
+
 .btn{
   display:inline-block;
   padding: 8px 14px;
