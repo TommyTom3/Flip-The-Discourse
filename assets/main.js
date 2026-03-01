@@ -86,8 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     collapseBtn.addEventListener("click", () => {
       archiveGroups.forEach((d) => (d.open = false));
-      // keep first open so the page doesn't feel empty
-      archiveGroups[0].open = true;
     });
   }
 });
